@@ -1,0 +1,14 @@
+module decode2 (
+    input [1:0] digit, // 2-bit input
+    output reg [3:0] ct // 4-bit active low output
+);
+    always @(*) begin
+        ct = 4'b1111; // Default to all outputs high
+        case (digit)
+            2'b00: ct = 4'b1110; // Digit 0
+            2'b01: ct = 4'b1101; // Digit 1
+            2'b10: ct = 4'b1011; // Digit 2
+            2'b11: ct = 4'b0111; // Digit 3
+        endcase
+    end
+endmodule

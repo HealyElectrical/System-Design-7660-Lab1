@@ -1,0 +1,16 @@
+module bcitid (
+    input [1:0] digit, // 2-bit input
+    output reg [3:0] idnum // 4-bit output
+);
+    reg [3:0] student_id [3:0]; // 4x4 memory
+    initial begin
+        // Initialize with your student ID (last 4 digits)
+        student_id[0] = 4'h3; // Example
+        student_id[1] = 4'h1;
+        student_id[2] = 4'h2;
+        student_id[3] = 4'h0;
+    end
+    always @(*) begin
+        idnum = student_id[digit];
+    end
+endmodule
